@@ -1,9 +1,9 @@
 import './App.css';
-
+import { AppRoutes } from './route/AppRoutes';
 function App() {
   return (
     <>
-      <h1>Vite + React</h1>
+      <AppRoutes />
     </>
   );
 }
