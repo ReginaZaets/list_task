@@ -14,8 +14,6 @@ interface FormFieldProps<TFieldValues extends FieldValues> {
   errorText?: string;
   defaultValue?: unknown;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  clearErrors?: (name?: string) => void;
-  trigger?: (name: FieldPath<TFieldValues>) => void;
   showTooltip: boolean;
   onBlur?: () => void;
 }

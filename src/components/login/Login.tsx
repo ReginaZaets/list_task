@@ -20,6 +20,7 @@ export const Login = () => {
   } = useForm<FormValues>({
     mode: 'onSubmit',
   });
+
   const onSubmit = async (data: FormValues) => {
     const valid = await trigger();
     if (valid) {
@@ -29,20 +30,19 @@ export const Login = () => {
       setShowTooltip(true);
     }
   };
-  const handleInputChange = () => {
-    setShowTooltip(false);
+
+  const handleInputInteraction = () => {
     clearErrors();
+    setShowTooltip(false);
   };
+
   const mailWatch = watch('email');
   useEffect(() => {
     if (mailWatch) {
       setShowTooltip(false);
     }
   }, [mailWatch, showTooltip]);
-  const handleInputBlur = () => {
-    clearErrors();
-    setShowTooltip(false);
-  };
+
   return (
     <form noValidate className={s.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={s.container}>
@@ -50,17 +50,15 @@ export const Login = () => {
         <FormField
           name='email'
           control={control}
-          placeholder='Введите адрес электронной почты'
+          placeholder='Введите почту'
           type='email'
           label='Адрес электронной почты'
           rules={validation.email}
           error={Boolean(errors.email)}
           errorText={errors.email?.message}
-          clearErrors={() => clearErrors}
-          trigger={trigger}
-          onChange={handleInputChange}
+          onChange={handleInputInteraction}
           showTooltip={showTooltip}
-          onBlur={handleInputBlur}
+          onBlur={handleInputInteraction}
         />
         <FormField
           name='password'
@@ -71,11 +69,9 @@ export const Login = () => {
           rules={validation.password}
           error={Boolean(errors.password)}
           errorText={errors.password?.message}
-          clearErrors={() => clearErrors}
-          trigger={trigger}
-          onChange={handleInputChange}
+          onChange={handleInputInteraction}
           showTooltip={showTooltip}
-          onBlur={handleInputBlur}
+          onBlur={handleInputInteraction}
         />
         <button className={s.button}>Войти</button>
       </div>

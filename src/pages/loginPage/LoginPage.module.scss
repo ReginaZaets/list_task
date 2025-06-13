@@ -1,3 +1,5 @@
+@import '../../styles/styles.scss';
+
 .container {
   display: flex;
   align-items: stretch;
@@ -34,4 +36,27 @@
   width: 50%;
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
+}
+@media (max-width: $tablet) {
+  .left {
+    padding-top: 150px;
+  }
+  .main {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: calc(100vh - 20px);
+    width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: $small-mobile) {
+  .left {
+    padding-top: 50px;
+  }
+  .main {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: calc(100vh - 20px);
+    width: calc(100% - 20px);
+  }
 }

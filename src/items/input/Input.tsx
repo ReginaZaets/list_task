@@ -14,7 +14,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, placeholder, type, onChange, onBlur, error = false, ...rest }, ref) => {
     return (
       <div className={s.field}>
-        <p className={s.subTitle}>{label}</p>
+        <p className={s.title}>{label}</p>
         <input
           type={type}
           placeholder={placeholder}
