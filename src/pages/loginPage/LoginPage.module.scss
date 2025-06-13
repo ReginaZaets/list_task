@@ -1,3 +1,5 @@
+@import '../../styles/styles.scss';
+
 .container {
   display: flex;
   align-items: stretch;
@@ -19,9 +21,7 @@
 }
 .left {
   width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 180px;
   background-color: #bdc8e5;
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
@@ -36,4 +36,27 @@
   width: 50%;
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
+}
+@media (max-width: $tablet) {
+  .left {
+    padding-top: 150px;
+  }
+  .main {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: calc(100vh - 40px);
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: $small-mobile) {
+  .left {
+    padding-top: 50px;
+  }
+  .main {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: calc(100vh - 20px);
+    width: calc(100% - 20px);
+  }
 }

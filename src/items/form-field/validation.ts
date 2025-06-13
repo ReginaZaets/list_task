@@ -1,0 +1,12 @@
+export const validation = {
+  email: {
+    required: 'Это поле обязательно',
+    pattern: {
+      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      message: 'Некорректный формат email',
+    },
+  },
+  password: {
+    required: 'Это поле обязательно',
+  },
+};
