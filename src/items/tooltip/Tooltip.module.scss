@@ -1,10 +1,12 @@
+@import '../../styles//styles.scss';
+
 .tooltip {
   position: relative;
 
   &__popup {
     display: none;
     position: absolute;
-    width: 250px;
+    width: 300px;
     border-radius: 24px;
     border: 1px solid red;
     background-color: white;
@@ -40,8 +42,9 @@
       border: 1px solid red;
       filter: drop-shadow(0px 0px 2px red);
       color: black;
+      font-size: 18px;
       justify-content: center;
-      
+
       &.tooltip__popup__left::after {
         border-color: transparent red;
       }
@@ -53,5 +56,40 @@
       flex-direction: row;
       align-items: center;
     }
+  }
+}
+@media (max-width: $tablet) {
+  .tooltip {
+    &__popup {
+      max-width: 250px;
+      &__error {
+        font-size: 12px;
+        padding: 8px;
+      }
+    }
+  }
+  .main {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: calc(100vh - 40px);
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: $small-mobile) {
+  .tooltip {
+    &__popup {
+      max-width: 180px;
+      &__error {
+        font-size: 10px;
+        padding: 5px;
+      }
+    }
+  }
+  .main {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: calc(100vh - 20px);
+    width: calc(100% - 20px);
   }
 }
