@@ -1,0 +1,57 @@
+.tooltip {
+  position: relative;
+
+  &__popup {
+    display: none;
+    position: absolute;
+    width: 250px;
+    border-radius: 24px;
+    border: 1px solid red;
+    background-color: white;
+    filter: drop-shadow(0px 0px 2px black);
+
+    &__left {
+      right: 105%;
+      top: 70%;
+      transform: translate(0, -50%);
+
+      &::after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-radius: 2px;
+        border-color: transparent black;
+        display: block;
+        width: 0;
+        z-index: 1;
+        border-width: 8px 0 8px 4px;
+        right: -4px;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+    }
+
+    &__visible {
+      display: flex;
+    }
+
+    &__error {
+      padding: 10px;
+      border: 1px solid red;
+      filter: drop-shadow(0px 0px 2px red);
+      color: black;
+      justify-content: center;
+      
+      &.tooltip__popup__left::after {
+        border-color: transparent red;
+      }
+    }
+
+    &__text,
+    &__error__text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}

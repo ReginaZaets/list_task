@@ -1,0 +1,31 @@
+.field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.subTitle {
+  color: #2c2c2c;
+  padding-left: 10px;
+}
+.input {
+  width: 350px;
+  height: 40px;
+  border-radius: 24px;
+  border: 1px solid #4675bb;
+  padding-left: 15px;
+  
+  &:focus {
+    border-color: #3d3d3d;
+    outline: none;
+  }
+}
+.input__error {
+  border-color: red;
+
+  &:focus {
+    border-color: red;
+    outline: none;
+    box-shadow: none;
+  }
+}
