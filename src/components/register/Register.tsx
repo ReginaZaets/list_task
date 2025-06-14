@@ -1,16 +1,16 @@
 import { useForm } from 'react-hook-form';
 import { FormField } from '../../items/form-field/FormField';
-import s from './Login.module.scss';
+import s from './Register.module.scss';
 import { useEffect, useState } from 'react';
 import { validation } from '../../items/form-field/validation';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../route/Routes';
-
 type FormValues = {
   email: string;
   password: string;
+  repeat_password: string;
 };
-export const Login = () => {
+export const Register = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const {
     control,
@@ -41,10 +41,11 @@ export const Login = () => {
   };
 
   const handleNavRegister = () => {
-    navigate(ROUTES.REGISTER);
+    navigate(ROUTES.LOGIN);
   };
 
   const mailWatch = watch('email');
+  const passwordWatch = watch('password');
   useEffect(() => {
     if (mailWatch) {
       setShowTooltip(false);
@@ -54,7 +55,7 @@ export const Login = () => {
   return (
     <form noValidate className={s.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={s.container}>
-        <h1 className={s.title}>Вход</h1>
+        <h1 className={s.title}>Регистрация</h1>
         <FormField
           name='email'
           control={control}
@@ -81,11 +82,24 @@ export const Login = () => {
           showTooltip={showTooltip}
           onBlur={handleInputInteraction}
         />
-        <button className={s.button}>Войти</button>
+        <FormField
+          name='repeat_password'
+          control={control}
+          placeholder='Повторите пароль'
+          type='password'
+          label='Повторите пароль'
+          rules={validation(passwordWatch).repeat_password}
+          error={Boolean(errors.repeat_password)}
+          errorText={errors.repeat_password?.message}
+          onChange={handleInputInteraction}
+          showTooltip={showTooltip}
+          onBlur={handleInputInteraction}
+        />
+        <button className={s.button}>Регистрация</button>
         <p className={s.title__sub}>
-          Нет личного кабинета? Тогда{' '}
+          Есть личный кабинет? Тогда{' '}
           <span className={s.title__sub__reg} onClick={handleNavRegister}>
-            зарегистрируйтесь
+            авторизируйтесь
           </span>
           .
         </p>
