@@ -1,4 +1,4 @@
-export const validation = {
+export const validation = (passwordValue?: string) => ({
   email: {
     required: 'Это поле обязательно',
     pattern: {
@@ -9,4 +9,8 @@ export const validation = {
   password: {
     required: 'Это поле обязательно',
   },
-};
+  repeat_password: {
+    required: 'Это поле обязательно',
+    validate: (value: string) => value === passwordValue || 'Пароли не совпадают',
+  },
+});
