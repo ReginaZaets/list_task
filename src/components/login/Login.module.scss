@@ -4,11 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 220px;
   height: 100hv;
 }
 .container {
-  width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +19,7 @@
   &__sub {
     color: #505050;
     font-size: 14px;
+    text-align: center;
     &__reg {
       font-style: italic;
       text-decoration: underline;
@@ -34,43 +33,44 @@
   width: 200px;
   color: #000000;
   background-color: #ffffff;
-  border: 1px solid #4675bb;
+  border: 1px solid #ffc64b;
   font-size: 18px;
 
   &:hover {
-    border: 1px solid #4675bb;
-    background-color: #4675bb;
+    background-color: #ffc64b;
     color: #ffffff;
   }
 }
 @media (max-width: $tablet) {
-  .form {
-    margin-top: 150px;
-  }
   .container {
     gap: 16px;
   }
   .title {
     max-width: 250px;
     font-size: 24px;
+    &__sub {
+      color: #505050;
+      font-size: 10px;
+    }
   }
   .button {
-    max-width: 250px;
+    max-width: 160px;
     font-size: 12px;
     height: 36px;
   }
 }
 
 @media (max-width: $small-mobile) {
-  .form {
-    margin-top: 50px;
-  }
   .container {
     gap: 8px;
   }
   .title {
     max-width: 150px;
     font-size: 15px;
+    &__sub {
+      color: #505050;
+      font-size: 8px;
+    }
   }
   .button {
     max-width: 100px;

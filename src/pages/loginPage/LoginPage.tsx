@@ -1,15 +1,15 @@
 import s from './LoginPage.module.scss';
-import task from '../../public/images/task1.png';
+import man from '../../public/images/man.png';
 import { Login } from '../../components/login/Login';
 export const LoginPage = () => {
   return (
     <div className={s.container}>
       <div className={s.main}>
         <div className={s.left}>
-          <img src={task} alt='tasks' />
+          <img src={man} alt='man_with_laptop' />
         </div>
         <div className={s.right}>
-          <Login/>
+          <Login />
         </div>
       </div>
     </div>
