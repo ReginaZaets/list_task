@@ -1,7 +1,8 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import s from './Input.module.scss';
 import clsx from 'clsx';
-
+import closeEye from '../../public/icons/close_eye.png';
+import openEye from '../../public/icons/open_eye.png';
 type InputProps = {
   label: string;
   placeholder: string;
@@ -12,11 +13,15 @@ type InputProps = {
 };
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, placeholder, type, onChange, onBlur, error = false, ...rest }, ref) => {
+    const [showIcon, setShowIcons] = useState(false);
+    const typePassword = type === 'password';
+    const currentType = typePassword && showIcon ? 'text' : type;
+
     return (
       <div className={s.field}>
         <p className={s.title}>{label}</p>
         <input
-          type={type}
+          type={currentType}
           placeholder={placeholder}
           ref={ref}
           {...rest}
@@ -24,6 +29,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           onChange={onChange}
           onBlur={onBlur}
         />
+        {typePassword && (
+          <div className={s.icon} onClick={() => setShowIcons((prev) => !prev)}>
+            <img src={showIcon ? openEye : closeEye} alt='icon' className={s.icon} />
+          </div>
+        )}
       </div>
     );
   },

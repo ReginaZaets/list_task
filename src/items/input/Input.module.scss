@@ -38,6 +38,13 @@
   }
 }
 
+.icon {
+  position: absolute;
+  width: 36px;
+  right: 5px;
+  top: 15px;
+}
+
 @media (max-width: $tablet) {
   .input {
     max-width: 300px;
@@ -49,6 +56,11 @@
   }
   .title {
     font-size: 12px;
+  }
+  .icon {
+    width: 28px;
+    right: 5px;
+    top: 11px;
   }
 }
 @media (max-width: $small-mobile) {
@@ -62,5 +74,10 @@
   }
   .title {
     font-size: 10px;
+  }
+  .icon {
+    width: 14px;
+    right: 5px;
+    top: 12px;
   }
 }
